@@ -22,8 +22,9 @@ const Home = ()=>
             console.log("Duplicate Element");
     }
     const ListDelete = (index)=>{
-        students.pop(index);
-        console.log("POP");
+        students.splice(index,1);
+        setStudents([...students]);
+        console.log("POP"+index+JSON.stringify(students));
     }
     const fetchDetails = async (reg)=>
     {
@@ -64,7 +65,7 @@ const Home = ()=>
                 <Table striped bordered hover>
                     <thead>
                     <tr>
-                        <th >register_no</th>
+                        <th >Register No.</th>
                         <th >Name</th>
                         <th >D/H</th>
                         <th >M/F</th>
@@ -78,7 +79,7 @@ const Home = ()=>
                                         <td >{student["NAME"]}</td>
                                         <td >{student["D/H"]}</td>
                                         <td >{student["M/F"]}</td>
-                                        <td ><button >Remove</button></td>
+                                        <td ><button onClick={() => { ListDelete(index) }}>Remove</button></td>
                                     </tr>
                                     
                         ))
