@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import { json } from "react-router-dom";
-
-const my_style = {
-    alignItems: 'center',
-    justifyContent: 'center',
-}
+import Table from 'react-bootstrap/Table';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const Home = ()=>
@@ -36,37 +33,38 @@ const Home = ()=>
     
     return(
 
-        <div style={my_style}>
+        <div>
         <div className="title"><h1>Enter the Absentees</h1><br/></div>  
         <div>
-        <form style={{paddingTop:"20px"}} onSubmit={handler}>
-            <label> Enter the register_no : 
+        <form style={{padding:"20px"}} onSubmit={handler}>
+            <label style={{paddingTop:"20px"}}> Enter the register_no : 
                 <input id="reg" type="number"/>
             </label>
         </form>
         </div>
         <div className="studentTable">
-                <table style={{border:"solid black",tableLayout: "fixed"}}>
-                    <tr style={{border:"solid black"}}>
-                        <th style={{border:"solid black"}}>register_no</th>
-                        <th style={{border:"solid black"}}>Name</th>
-                        <th style={{border:"solid black"}}>D/H</th>
-                        <th style={{border:"solid black"}}>M/F</th>
+                <Table striped bordered hover>
+                    <thead>
+                    <tr>
+                        <th >register_no</th>
+                        <th >Name</th>
+                        <th >D/H</th>
+                        <th >M/F</th>
                     </tr>
+                    </thead>
+                    <tbody>
                         {
                         Array.isArray(students) && students.map((student) => (
-                                <div>
                                     <tr key={student.Register_no}>
-                                        <td  style={{border:"solid black",textAlign: "center"}}>{student.Register_no}</td>
-                                        <td style={{border:"solid black"}}>{student["NAME"]}</td>
-                                        <td style={{border:"solid black"}}>{student["D/H"]}</td>
-                                        <td style={{border:"solid black",textAlign: "center"}}>{student["M/F"]}</td>
+                                        <td  >{student.Register_no}</td>
+                                        <td >{student["NAME"]}</td>
+                                        <td >{student["D/H"]}</td>
+                                        <td >{student["M/F"]}</td>
                                     </tr>
-                                </div>
                         ))
                         }
-                    
-                </table>
+                    </tbody>
+                </Table>
         </div>
         </div>
         
