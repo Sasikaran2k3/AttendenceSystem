@@ -1,5 +1,4 @@
 {
-  "proxy": "https://attendencesystem-kija.onrender.com/https://attendencesystembackend.onrender.com",
   "name": "front",
   "version": "0.1.0",
   "private": true,

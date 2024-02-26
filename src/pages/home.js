@@ -10,7 +10,7 @@ const Home = ()=>
 
     const fetchDetails = async (reg)=>
     {
-        const response = await fetch("/search/"+reg);
+        const response = await fetch("/search/"+reg, {mode:'cors'});
         if(response.ok)
         {
             const json_response = await response.json();
