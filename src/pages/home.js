@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Table from 'react-bootstrap/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactLoading from "react-loading";
+import './home.css';
 
 const Home = ()=>
 {
@@ -79,12 +80,11 @@ const Home = ()=>
         const reg = document.getElementById("reg").value;
         console.log(students);
         fetchDetails(reg);
+        document.getElementById("reg").value = Math.floor(reg/1000);
 
     }
     
     return(
-
-        
         <div>
         <div className="title"><h1>Enter the Absentees</h1><br/></div>  
         <div>
@@ -94,7 +94,7 @@ const Home = ()=>
             </label>
             <label style={{padding:"20px"}}> Year : 
                 <input id="year" type="number"/>
-            </label>
+            </label>    
             <label style={{padding:"20px"}}> Section : 
                 <input id="sec" type="text"/>
             </label>
