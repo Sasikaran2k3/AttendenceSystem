@@ -72,7 +72,6 @@ const Home = ()=>
         else
             console.log("Fetch Error");
         setLoading(false);
-    
     }
     const handler = (e)=>
     {
